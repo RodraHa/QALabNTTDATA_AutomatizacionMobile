@@ -1,7 +1,6 @@
 package com.nttdata.stepsdefinitions;
 
 import com.nttdata.steps.StoreSteps;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -38,6 +37,5 @@ public class CarritoStepsDef {
     @Then("valido el carrito de compra actualice correctamente")
     public void validoElCarritoDeCompraActualiceCorrectamente() {
         storeSteps.validateCartUpdate(this.lastProductName, this.lastQuantity);
-        storeSteps.returnToShop();
     }
 }

@@ -1,6 +1,6 @@
+@test
 Feature: Carrito de Compras
 
-  @test
   Scenario Outline: Agregar productos al carrito
    Given estoy en la aplicación de SauceLabs
    And valido que carguen correctamente los productos en la galeria

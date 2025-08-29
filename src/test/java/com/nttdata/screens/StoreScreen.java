@@ -82,14 +82,4 @@ public class StoreScreen extends PageObject {
         element(quantityProductCart).waitUntilVisible();
         return quantityProductCart.getText();
     }
-
-    public void clickRemoveProduct() {
-        element(btnRemoveProduct).waitUntilClickable();
-        btnRemoveProduct.click();
-    }
-
-    public void clickReturnToShop() {
-        element(btnReturnToShop).waitUntilClickable();
-        btnReturnToShop.click();
-    }
 }

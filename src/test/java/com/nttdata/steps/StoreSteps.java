@@ -29,9 +29,4 @@ public class StoreSteps {
         Assert.assertEquals(expectedProductName, actualProductName);
         Assert.assertEquals(expectedQuantity, actualQuantity);
     }
-
-    public void returnToShop() {
-        storeScreen.clickRemoveProduct();
-        storeScreen.clickReturnToShop();
-    }
 }
