@@ -12,4 +12,10 @@ public class StoreSteps {
     public boolean hasProducts() {
         return !storeScreen.getProducts().isEmpty();
     }
+
+    public void selectProductAndQuantity(String productName, String quantity) {
+        storeScreen.clickProductByName(productName);
+        storeScreen.setProductQuantity(quantity);
+        storeScreen.clickAddToCart();
+    }
 }

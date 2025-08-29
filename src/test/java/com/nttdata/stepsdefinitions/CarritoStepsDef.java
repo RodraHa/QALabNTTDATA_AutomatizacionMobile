@@ -24,14 +24,13 @@ public class CarritoStepsDef {
         Assert.assertTrue(storeSteps.hasProducts());
     }
 
-    @Then("valido el carrito de compra actualice correctamente")
-    public void validoElCarritoDeCompraActualiceCorrectamente() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @When("agrego {string} del siguiente producto {string}")
+    public void agregoDelSiguienteProducto(String quantity, String productName) {
+        storeSteps.selectProductAndQuantity(productName, quantity);
     }
 
-    @When("agrego {string} del siguiente producto {string}")
-    public void agregoDelSiguienteProducto(String arg0, String arg1) {
+    @Then("valido el carrito de compra actualice correctamente")
+    public void validoElCarritoDeCompraActualiceCorrectamente() {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
