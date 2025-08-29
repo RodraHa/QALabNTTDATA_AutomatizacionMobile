@@ -13,6 +13,9 @@ public class CarritoStepsDef {
     @Steps
     StoreSteps storeSteps;
 
+    private String lastProductName;
+    private int lastQuantity;
+
     @Given("estoy en la aplicación de SauceLabs")
     public void estoyEnLaAplicaciónDeSauceLabs() {
         // Validar carga de aplicacion
@@ -27,11 +30,14 @@ public class CarritoStepsDef {
     @When("agrego {string} del siguiente producto {string}")
     public void agregoDelSiguienteProducto(String quantity, String productName) {
         storeSteps.selectProductAndQuantity(productName, quantity);
+
+        this.lastProductName = productName;
+        this.lastQuantity = Integer.parseInt(quantity);
     }
 
     @Then("valido el carrito de compra actualice correctamente")
     public void validoElCarritoDeCompraActualiceCorrectamente() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        storeSteps.validateCartUpdate(this.lastProductName, this.lastQuantity);
+        storeSteps.returnToShop();
     }
 }

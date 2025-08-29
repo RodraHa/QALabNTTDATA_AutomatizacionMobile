@@ -14,11 +14,26 @@ public class StoreScreen extends PageObject {
     @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup")
     private List<WebElement> products;
 
-    @AndroidFindBy(accessibility = "//android.widget.ImageView[@content-desc=\"Increase item quantity\"]")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Increase item quantity\"]")
     private WebElement btnIncreaseQuantity;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Tap to add product to cart\"]")
     private WebElement btnAddToCart;
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Displays number of items in your cart\"]")
+    private WebElement btnCart;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.saucelabs.mydemoapp.android:id/titleTV\"]")
+    private WebElement txtCartProductName;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.saucelabs.mydemoapp.android:id/noTV\"]")
+    private WebElement quantityProductCart;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"Removes product from cart\"]")
+    private WebElement btnRemoveProduct;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.saucelabs.mydemoapp.android:id/shoppingBt\"]")
+    private WebElement btnReturnToShop;
 
     public boolean isAppLoaded() {
         return appLogo.isDisplayed();
@@ -51,5 +66,30 @@ public class StoreScreen extends PageObject {
     public void clickAddToCart() {
         element(btnAddToCart).waitUntilVisible();
         btnAddToCart.click();
+    }
+
+    public void clickCart() {
+        element(btnCart).waitUntilClickable();
+        btnCart.click();
+    }
+
+    public String getCartProductName() {
+        element(txtCartProductName).waitUntilVisible();
+        return txtCartProductName.getText();
+    }
+
+    public String getQuantityProductCart() {
+        element(quantityProductCart).waitUntilVisible();
+        return quantityProductCart.getText();
+    }
+
+    public void clickRemoveProduct() {
+        element(btnRemoveProduct).waitUntilClickable();
+        btnRemoveProduct.click();
+    }
+
+    public void clickReturnToShop() {
+        element(btnReturnToShop).waitUntilClickable();
+        btnReturnToShop.click();
     }
 }
